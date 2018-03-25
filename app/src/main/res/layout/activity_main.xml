@@ -15,17 +15,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/editText2"
-            android:layout_width="302dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@color/colorPrimary"
-            android:ems="10"
-            android:inputType="textPersonName" />
-
         <Button
-            android:id="@+id/button8"
+            android:id="@+id/newList"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
