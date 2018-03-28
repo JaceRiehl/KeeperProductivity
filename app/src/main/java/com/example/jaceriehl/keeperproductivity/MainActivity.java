@@ -5,15 +5,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
+    private ListView boardList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        boardList = (ListView) findViewById(R.id.lists);
         final Button newList = findViewById(R.id.newList);
         newList.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
                 final Button newList = findViewById(R.id.newList);
                 newList.setText("HI");
             }
+
         }
     }
 

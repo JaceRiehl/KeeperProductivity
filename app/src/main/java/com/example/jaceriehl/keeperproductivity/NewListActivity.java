@@ -22,6 +22,8 @@ public class NewListActivity extends AppCompatActivity {
         final EditText enterBoardName = findViewById(R.id.enterBoardName);
         final Button cancelBox = findViewById(R.id.closeNewList);
         final Intent returnIntent = new Intent();
+
+
         enterBoardName.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
