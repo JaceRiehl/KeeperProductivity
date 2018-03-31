@@ -34,22 +34,7 @@ public class MainActivity extends AppCompatActivity {
         listView.setHasFixedSize(true);
 
         final String[] listEls = {
-                "Aardvark",
-                "Albatross",
-                "Alligator",
-                "Alpaca",
-                "Ant",
-                "Anteater",
-                "Antelope",
-                "Ape",
-                "Armadillo",
-                "Donkey",
-                "Baboon",
-                "Badger",
-                "Barracuda",
-                "Bear",
-                "Beaver",
-                "Bee"
+
         };
 
         // Intilize an array list from array
@@ -88,13 +73,15 @@ public class MainActivity extends AppCompatActivity {
         {
             if(resultCode == RESULT_OK)
             {
-                final Button newList = findViewById(R.id.newList);
-                newList.setText("HI");
+                //final Button newList = findViewById(R.id.newList);
+                //newList.setText("HI");
 
                 int position = 0;
-                boardList.add(position,"" + "fdssdf");
+                String result = data.getStringExtra("boardName");
+                boardList.add(position,"" + result);
                 mAdapter.notifyItemInserted(position);
                 listView.scrollToPosition(position);
+                Lists newListToBeAdded = new Lists(result);
                 Toast.makeText(mContext,"Added : " + "fdssdf",Toast.LENGTH_SHORT).show();
             }
 

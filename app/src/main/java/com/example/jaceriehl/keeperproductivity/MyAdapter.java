@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.EmbossMaskFilter;
 import android.graphics.drawable.GradientDrawable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -54,7 +55,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
         int color = getRandomHSVColor();
 
         // Set a random color for TextView background
-        holder.mTextView.setBackgroundColor(getLighterColor(color));
+        holder.mTextView.setBackgroundColor(ContextCompat.getColor(mContext, R.color.mainWhite));
 
         // Set a text color for TextView
         holder.mTextView.setTextColor(getReverseColor(color));
