@@ -26,17 +26,17 @@
             android:textSize="30sp" />
     </LinearLayout>
 
-    <ListView
-        android:id="@+id/lists"
-        android:layout_width="349dp"
-        android:layout_height="488dp"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/displayLists"
+        android:layout_width="344dp"
+        android:layout_height="508dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:scrollbarStyle="insideOverlay"
         android:scrollbars="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
 
-    </ListView>
 </android.support.constraint.ConstraintLayout>

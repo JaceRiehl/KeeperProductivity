@@ -1,32 +1,85 @@
 package com.example.jaceriehl.keeperproductivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private ListView boardList;
-
+    private RecyclerView listView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
+    private Context mContext;
+    RelativeLayout mRelativeLayout;
+    private List<String> boardList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        boardList = (ListView) findViewById(R.id.lists);
+        mContext = getApplicationContext();
+        listView = (RecyclerView) findViewById(R.id.displayLists);
+        listView.setHasFixedSize(true);
+
+        final String[] listEls = {
+                "Aardvark",
+                "Albatross",
+                "Alligator",
+                "Alpaca",
+                "Ant",
+                "Anteater",
+                "Antelope",
+                "Ape",
+                "Armadillo",
+                "Donkey",
+                "Baboon",
+                "Badger",
+                "Barracuda",
+                "Bear",
+                "Beaver",
+                "Bee"
+        };
+
+        // Intilize an array list from array
+        boardList = new ArrayList(Arrays.asList(listEls));
+
+        mLayoutManager = new GridLayoutManager(mContext,3);
+        listView.setLayoutManager(mLayoutManager);
+        mAdapter = new MyAdapter(mContext,boardList);
+        listView.setAdapter(mAdapter);
+
         final Button newList = findViewById(R.id.newList);
         newList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 final Intent listSettingsIntent = new Intent(view.getContext(), NewListActivity.class);
                     startActivityForResult(listSettingsIntent, 0);
+
+
                 }
         });
 
     }
+
+//    @Override
+//    public void onContentChanged() {
+//        super.onContentChanged();
+//        boardList = (ListView) findViewById(R.id.lists);
+//        View empty = findViewById(R.id.empty);
+//        boardList.setEmptyView(empty);
+//    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
@@ -37,6 +90,12 @@ public class MainActivity extends AppCompatActivity {
             {
                 final Button newList = findViewById(R.id.newList);
                 newList.setText("HI");
+
+                int position = 0;
+                boardList.add(position,"" + "fdssdf");
+                mAdapter.notifyItemInserted(position);
+                listView.scrollToPosition(position);
+                Toast.makeText(mContext,"Added : " + "fdssdf",Toast.LENGTH_SHORT).show();
             }
 
         }
