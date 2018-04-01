@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private Context mContext;
     RelativeLayout mRelativeLayout;
     private List<String> boardList;
+    private int position = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,14 +34,14 @@ public class MainActivity extends AppCompatActivity {
         listView = (RecyclerView) findViewById(R.id.displayLists);
         listView.setHasFixedSize(true);
 
-        final String[] listEls = {
+        final Lists[] listEls = {
 
         };
 
         // Intilize an array list from array
         boardList = new ArrayList(Arrays.asList(listEls));
 
-        mLayoutManager = new GridLayoutManager(mContext,3);
+        mLayoutManager = new GridLayoutManager(mContext,1);
         listView.setLayoutManager(mLayoutManager);
         mAdapter = new MyAdapter(mContext,boardList);
         listView.setAdapter(mAdapter);
@@ -51,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 final Intent listSettingsIntent = new Intent(view.getContext(), NewListActivity.class);
                     startActivityForResult(listSettingsIntent, 0);
-
 
                 }
         });
@@ -73,16 +73,18 @@ public class MainActivity extends AppCompatActivity {
         {
             if(resultCode == RESULT_OK)
             {
-                //final Button newList = findViewById(R.id.newList);
+                final Button newList = findViewById(R.id.newList);
                 //newList.setText("HI");
 
-                int position = 0;
+
                 String result = data.getStringExtra("boardName");
                 boardList.add(position,"" + result);
                 mAdapter.notifyItemInserted(position);
                 listView.scrollToPosition(position);
                 Lists newListToBeAdded = new Lists(result);
-                Toast.makeText(mContext,"Added : " + "fdssdf",Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext,"Added : " + result,Toast.LENGTH_SHORT).show();
+
+                position += 1;
             }
 
         }

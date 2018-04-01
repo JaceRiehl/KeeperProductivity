@@ -36,7 +36,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
             super(v);
             mTextView = (TextView) v.findViewById(R.id.tv);
 //            mRemoveButton = (ImageButton) v.findViewById(R.id.ib_remove);
-//            mRelativeLayout = (RelativeLayout) v.findViewById(R.id.rl);
+            mRelativeLayout = (RelativeLayout) v.findViewById(R.id.rl);
         }
     }
 
@@ -58,7 +58,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
         holder.mTextView.setBackgroundColor(ContextCompat.getColor(mContext, R.color.mainWhite));
 
         // Set a text color for TextView
-        holder.mTextView.setTextColor(getReverseColor(color));
+        holder.mTextView.setTextColor(ContextCompat.getColor(mContext, R.color.colorPrimary));
 
         // Set a gradient background for RelativeLayout
 //        holder.mRelativeLayout.setBackground(getGradientDrawable());
@@ -70,8 +70,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
         holder.mTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String animal = mDataSet.get(position);
-                Toast.makeText(mContext,animal,Toast.LENGTH_SHORT).show();
+//                String animal = mDataSet.get(position);
+//                Toast.makeText(mContext,animal,Toast.LENGTH_SHORT).show();
+
             }
         });
 
