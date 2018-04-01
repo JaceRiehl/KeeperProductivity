@@ -16,7 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".NewListActivity"></activity>
+        <activity android:name=".NewListActivity" />
+        <activity
+            android:name=".TasksBoard"
+            android:label="@string/title_activity_tasks_board"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

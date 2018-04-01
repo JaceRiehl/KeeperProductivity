@@ -6,4 +6,5 @@
     <color name="mainWhite">#ffffff</color>
     <color name="checkBoxes">#60aef7</color>
     <color name="ghostText">#e2e2e2</color>
+    <color name="subtleText">#b9b9b9</color>
 </resources>
