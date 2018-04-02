@@ -1,6 +1,9 @@
 package com.example.jaceriehl.keeperproductivity;
 
+import android.app.Activity;
+import android.app.Application;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.EmbossMaskFilter;
 import android.graphics.drawable.GradientDrawable;
@@ -9,6 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -49,7 +53,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, final int position){
+    public void onBindViewHolder(final ViewHolder holder, final int position){
         holder.mTextView.setText((String)mDataSet.get(position));
         // Generate a random color
         int color = getRandomHSVColor();
@@ -70,11 +74,39 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
         holder.mTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                String animal = mDataSet.get(position);
-//                Toast.makeText(mContext,animal,Toast.LENGTH_SHORT).show();
-
+                String animal = mDataSet.get(position);
+                Toast.makeText(mContext, animal, Toast.LENGTH_SHORT).show();
+                final Intent showList = new Intent(mContext,TasksBoard.class);
+                //sowList.setAction(Intent.ACTION_GET_CONTENT);
+                //showList.setClass(mContext,TasksBoard.class);
+                mContext.startActivity(showList);
             }
+
+//            @Override
+//            protected void onActivityResult(int requestCode, int resultCode, Intent data){
+//            MyAdapter.super.onActivityResult(requestCode,resultCode,data);
+//                if(requestCode == 0)
+//                {
+//                    if(resultCode == RESULT_OK)
+//                    {
+////                    final Button newList = findViewById(R.id.newList);
+////                    //newList.setText("HI");
+////
+////
+////                    String result = data.getStringExtra("boardName");
+////                    boardList.add(position,"" + result);
+////                    mAdapter.notifyItemInserted(position);
+////                    listView.scrollToPosition(position);
+////                    Lists newListToBeAdded = new Lists(result);
+////                    Toast.makeText(mContext,"Added : " + result,Toast.LENGTH_SHORT).show();
+////
+////                    position += 1;
+////                }
+//
+//                    }
+//                }
         });
+
 
         // Set a click listener for item remove button
 //        holder.mRemoveButton.setOnClickListener(new View.OnClickListener() {

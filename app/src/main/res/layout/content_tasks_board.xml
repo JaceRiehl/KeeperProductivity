@@ -8,4 +8,23 @@
     tools:context="com.example.jaceriehl.keeperproductivity.TasksBoard"
     tools:showIn="@layout/activity_tasks_board">
 
+    <RelativeLayout
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:background="@color/tasksBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="294dp"
+            android:background="@color/tasksBar"
+            android:text="fdsa"
+            android:textColor="@color/mainWhite"
+            android:textSize="30sp" />
+    </RelativeLayout>
 </android.support.constraint.ConstraintLayout>
