@@ -76,11 +76,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
             public void onClick(View view) {
                 String animal = mDataSet.get(position);
                 Toast.makeText(mContext, animal, Toast.LENGTH_SHORT).show();
-                final Intent showList = new Intent(mContext,TasksBoard.class);
+                Intent showList = new Intent(mContext,TasksActivity.class);
+                showList.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                showList.putExtra("test", "This is a test value");
+                //showList.addFlags(FLAG_ACTIVITY_NEW_TASK);
                 //sowList.setAction(Intent.ACTION_GET_CONTENT);
                 //showList.setClass(mContext,TasksBoard.class);
                 mContext.startActivity(showList);
-            }
+                }
+
 
 //            @Override
 //            protected void onActivityResult(int requestCode, int resultCode, Intent data){
@@ -224,4 +228,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
         hsv[0] = (hsv[0] + 180) % 360;
         return Color.HSVToColor(hsv);
     }
+
+
 }

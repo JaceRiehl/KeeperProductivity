@@ -90,4 +90,16 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+//    //@Override
+//    public void onItemClick(View view, int position) {
+//        //Context context=view.getContext();
+//        Intent intent=new Intent();
+//        switch (position){
+//            case 0:
+//                intent =  new Intent(mContext, TasksBoard.class);
+//                mContext.startActivity(intent);
+//                break;
+//        }
+//    }
+
 }

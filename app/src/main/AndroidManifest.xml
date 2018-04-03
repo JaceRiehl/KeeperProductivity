@@ -17,10 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".NewListActivity" />
-        <activity
-            android:name=".TasksBoard"
-            android:label="@string/title_activity_tasks_board"
-            android:theme="@style/TaskTheme.PopupOverlay"></activity>
+        <activity android:name=".TasksActivity"></activity>
     </application>
 
 </manifest>
