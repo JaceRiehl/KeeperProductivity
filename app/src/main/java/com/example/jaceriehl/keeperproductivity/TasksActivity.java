@@ -11,6 +11,10 @@ public class TasksActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tasks);
 
+       // getActionBar().setHomeButtonEnabled(true);
+        //getActionBar().setDisplayHomeAsUpEnabled(true);
+        //getActionBar().setTitle("Title");
+        //getSupportActionBar().setTitle("Hello world App");
         Intent returnIntent = getIntent();
 
     }

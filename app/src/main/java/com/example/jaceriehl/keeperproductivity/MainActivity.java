@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private Context mContext;
+
     RelativeLayout mRelativeLayout;
     private List<String> boardList;
     private int position = 0;
