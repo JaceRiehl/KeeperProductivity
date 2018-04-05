@@ -21,8 +21,9 @@ public class TasksActivity extends AppCompatActivity {
         //getSupportActionBar().setTitle("Hello world App");
         returnIntent = getIntent();
         Lists listEl = (Lists)returnIntent.getParcelableExtra("listObject");
-        //listEl.setName("Jace");
         action.setTitle(listEl.getName());
+        
+
 
 
 
