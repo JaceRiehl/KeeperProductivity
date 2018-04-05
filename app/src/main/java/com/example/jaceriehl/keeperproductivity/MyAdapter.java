@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.EmbossMaskFilter;
 import android.graphics.drawable.GradientDrawable;
+import android.os.Parcelable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -23,11 +24,11 @@ import java.util.Random;
 
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
-    private List<String> mDataSet;
+    private List<Lists> mDataSet;
     private Context mContext;
     private Random mRandom = new Random();
 
-    public MyAdapter(Context context,List<String> list){
+    public MyAdapter(Context context,List<Lists> list){
         mDataSet = list;
         mContext = context;
     }
@@ -54,7 +55,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position){
-        holder.mTextView.setText((String)mDataSet.get(position));
+        holder.mTextView.setText((String)mDataSet.get(position).getName());
         // Generate a random color
         int color = getRandomHSVColor();
 
@@ -74,15 +75,17 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
         holder.mTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String animal = mDataSet.get(position);
+                String animal = mDataSet.get(position).getName();
                 Toast.makeText(mContext, animal, Toast.LENGTH_SHORT).show();
                 Intent showList = new Intent(mContext,TasksActivity.class);
-                showList.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                showList.putExtra("test", "This is a test value");
+                //showList.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                Lists parce = mDataSet.get(position);
+                showList.putExtra("listObject", (Parcelable) parce);
                 //showList.addFlags(FLAG_ACTIVITY_NEW_TASK);
                 //sowList.setAction(Intent.ACTION_GET_CONTENT);
                 //showList.setClass(mContext,TasksBoard.class);
-                mContext.startActivity(showList);
+                 mContext.startActivity(showList);
+
                 }
 
 

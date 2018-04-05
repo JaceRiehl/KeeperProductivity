@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import java.util.List;
+
 public class TasksActivity extends AppCompatActivity {
     protected Intent returnIntent;
     @Override
@@ -15,9 +17,12 @@ public class TasksActivity extends AppCompatActivity {
         ActionBar action = getSupportActionBar();
         action.setHomeButtonEnabled(true);
         action.setDisplayHomeAsUpEnabled(true);
-        action.setTitle("Title");
+        //action.setTitle("Title");
         //getSupportActionBar().setTitle("Hello world App");
         returnIntent = getIntent();
+        Lists listEl = (Lists)returnIntent.getParcelableExtra("listObject");
+        //listEl.setName("Jace");
+        action.setTitle(listEl.getName());
 
 
 

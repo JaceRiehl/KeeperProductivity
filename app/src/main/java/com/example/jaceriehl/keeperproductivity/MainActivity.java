@@ -36,11 +36,12 @@ public class MainActivity extends AppCompatActivity {
         listView.setHasFixedSize(true);
 
         final Lists[] listEls = {
-
+            new Lists("Test")
         };
 
         // Intilize an array list from array
-        boardList = new ArrayList(Arrays.asList(listEls));
+        ArrayList<Lists> boardList = new ArrayList<Lists>();
+        boardList.add(new Lists("Test"));
 
         mLayoutManager = new GridLayoutManager(mContext,1);
         listView.setLayoutManager(mLayoutManager);
@@ -90,6 +91,19 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
+
+//    public void callOnListClicked(int position){
+//        //mContext = getApplicationContext();
+//        //String animal = boardList.get(position);
+//        Toast.makeText(getApplicationContext(), "dfshjak", Toast.LENGTH_SHORT).show();
+//        //Intent showList = new Intent(mContext,TasksActivity.class);
+//        //showList.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//        //showList.putExtra("test", "This is a test value");
+//        //showList.addFlags(FLAG_ACTIVITY_NEW_TASK);
+//        //sowList.setAction(Intent.ACTION_GET_CONTENT);
+//        //showList.setClass(mContext,TasksBoard.class);
+//       // mContext.startActivity(showList);
+//    }
 
 //    //@Override
 //    public void onItemClick(View view, int position) {
