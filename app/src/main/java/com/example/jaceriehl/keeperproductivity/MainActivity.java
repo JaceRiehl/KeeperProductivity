@@ -25,8 +25,9 @@ public class MainActivity extends AppCompatActivity {
     private Context mContext;
 
     RelativeLayout mRelativeLayout;
-    private List<String> boardList;
-    private int position = 0;
+    //private List<String> boardList;
+    private int position = 1;
+    ArrayList<Lists> boardList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
         };
 
         // Intilize an array list from array
-        ArrayList<Lists> boardList = new ArrayList<Lists>();
-        boardList.add(new Lists("Test"));
+        boardList = new ArrayList<Lists>();
+        boardList.add(0, new Lists("Test"));
 
         mLayoutManager = new GridLayoutManager(mContext,1);
         listView.setLayoutManager(mLayoutManager);
@@ -80,10 +81,11 @@ public class MainActivity extends AppCompatActivity {
 
 
                 String result = data.getStringExtra("boardName");
-                boardList.add(position,"" + result);
+                Lists newListToBeAdded = new Lists(result);
+                boardList.add(newListToBeAdded);
                 mAdapter.notifyItemInserted(position);
                 listView.scrollToPosition(position);
-                Lists newListToBeAdded = new Lists(result);
+
                 Toast.makeText(mContext,"Added : " + result,Toast.LENGTH_SHORT).show();
 
                 position += 1;
