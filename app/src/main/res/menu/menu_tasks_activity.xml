@@ -4,5 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.jaceriehl.keeperproductivity.TasksActivity">
 
+    <!-- "Mark Favorite", should appear as action button if possible -->
+    <item
+        android:id="@+id/action_add"
+        android:icon="@drawable/add_button_white"
+        android:title="@string/add_task_setting"
+        app:showAsAction="ifRoom"/>
 
 </menu>
