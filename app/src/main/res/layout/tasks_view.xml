@@ -5,20 +5,34 @@
     android:id="@+id/taskLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/layout_rounded_corners"
     android:orientation="horizontal"
     android:paddingBottom="10dp"
     android:paddingTop="10dp">
 
+    <Space
+        android:layout_width="14dp"
+        android:layout_height="10dp"
+        android:layout_weight="1" />
+
     <TextView
         android:id="@+id/taskName"
-        android:layout_width="260dp"
+        android:layout_width="268dp"
         android:layout_height="38dp"
         android:layout_weight="1"
+        android:ellipsize="end"
+        android:maxEms="25"
+        android:maxLines="1"
+        android:nestedScrollingEnabled="false"
+        android:scrollHorizontally="true"
+        android:scrollIndicators="right"
+        android:scrollbarAlwaysDrawHorizontalTrack="false"
+        android:scrollbars="horizontal"
         android:textSize="24sp" />
 
     <ImageButton
         android:id="@+id/taskButton"
-        android:layout_width="wrap_content"
+        android:layout_width="61dp"
         android:layout_height="38dp"
         android:layout_weight="1"
         android:adjustViewBounds="true"
@@ -27,5 +41,15 @@
         android:padding="15dp"
         android:scaleType="centerCrop"
         android:src="@drawable/unchecked_checkbox" />
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+    <Space
+        android:layout_width="19dp"
+        android:layout_height="21dp"
+        android:layout_weight="1.1" />
 
 </LinearLayout>

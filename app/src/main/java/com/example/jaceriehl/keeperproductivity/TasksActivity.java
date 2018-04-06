@@ -6,6 +6,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatDelegate;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
@@ -60,7 +61,8 @@ public class TasksActivity extends AppCompatActivity {
         returnIntent = getIntent();
         Lists listEl = (Lists)returnIntent.getParcelableExtra("listObject");
         action.setTitle(listEl.getName());
-        
+        taskView.addItemDecoration(new DividerItemDecoration(mContext,
+                DividerItemDecoration.VERTICAL));
 
 
 
