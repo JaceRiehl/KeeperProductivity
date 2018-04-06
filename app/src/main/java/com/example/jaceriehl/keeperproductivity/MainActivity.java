@@ -5,18 +5,13 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.AbsListView;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView listView;
@@ -46,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
         mLayoutManager = new GridLayoutManager(mContext,1);
         listView.setLayoutManager(mLayoutManager);
-        mAdapter = new MyAdapter(mContext,boardList);
+        mAdapter = new ListsAdapter(mContext,boardList);
         listView.setAdapter(mAdapter);
 
         final Button newList = findViewById(R.id.newList);

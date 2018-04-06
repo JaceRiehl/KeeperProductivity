@@ -11,11 +11,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class TasksActivity extends AppCompatActivity {
     protected Intent returnIntent;
@@ -81,10 +83,37 @@ public class TasksActivity extends AppCompatActivity {
                 finish();
                 return true;
             case R.id.action_add:
-                //final Intent listSettingsIntent = new Intent(view.getContext(), NewListActivity.class);
-                //startActivityForResult(listSettingsIntent, 0);
+                final Intent listSettingsIntent = new Intent(mContext, NewTaskActivity.class);
+                startActivityForResult(listSettingsIntent, 0);
                 return true;
         }
         return super.onOptionsItemSelected(item);
     }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        TasksActivity.super.onActivityResult(requestCode,resultCode,data);
+        if(requestCode == 0)
+        {
+            if(resultCode == RESULT_OK)
+            {
+                final Button newList = findViewById(R.id.newList);
+                //newList.setText("HI");
+
+
+                String result = data.getStringExtra("taskName");
+                Tasks newTaskToBeAdded = new Tasks(result);
+                taskList.add(newTaskToBeAdded);
+                mAdapter.notifyItemInserted(position);
+                taskView.scrollToPosition(position);
+
+                Toast.makeText(mContext,"Added : " + result,Toast.LENGTH_SHORT).show();
+
+                position += 1;
+            }
+
+        }
+    }
+
 }

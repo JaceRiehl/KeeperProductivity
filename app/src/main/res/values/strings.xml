@@ -4,4 +4,8 @@
     <string name="title_activity_tasks_board">TasksBoard</string>
     <string name="add_task_setting">Add a new task</string>
     <string name="checkbox_string">If clicked will remove item</string>
+    <string name="nameAttribute">Name:</string>
+    <string name="task_name">Task Name</string>
+    <string name="x">X</string>
+    <string name="new_task">New Task</string>
 </resources>
