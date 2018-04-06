@@ -2,6 +2,7 @@ package com.example.jaceriehl.keeperproductivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -30,7 +31,11 @@ public class MainActivity extends AppCompatActivity {
         mContext = getApplicationContext();
         listView = (RecyclerView) findViewById(R.id.displayLists);
         listView.setHasFixedSize(true);
+        ActionBar action = getSupportActionBar();
 
+        action.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        action.setCustomView(R.layout.custom_main_act_bar);
+        action.setTitle("Lists");
         final Lists[] listEls = {
             new Lists("Test")
         };

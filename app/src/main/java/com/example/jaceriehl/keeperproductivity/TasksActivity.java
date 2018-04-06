@@ -2,6 +2,7 @@ package com.example.jaceriehl.keeperproductivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -61,9 +62,9 @@ public class TasksActivity extends AppCompatActivity {
         returnIntent = getIntent();
         Lists listEl = (Lists)returnIntent.getParcelableExtra("listObject");
         action.setTitle(listEl.getName());
-        taskView.addItemDecoration(new DividerItemDecoration(mContext,
-                DividerItemDecoration.VERTICAL));
-
+        DividerItemDecoration itemDecorator = new DividerItemDecoration(mContext, DividerItemDecoration.VERTICAL);
+        itemDecorator.setDrawable(ContextCompat.getDrawable(mContext, R.drawable.recycler_spacer));
+        taskView.addItemDecoration(itemDecorator);
 
 
 

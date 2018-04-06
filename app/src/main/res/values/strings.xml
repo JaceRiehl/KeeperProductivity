@@ -8,4 +8,5 @@
     <string name="task_name">Task Name</string>
     <string name="x">X</string>
     <string name="new_task">New Task</string>
+    <string name="main_act_title">Lists</string>
 </resources>
