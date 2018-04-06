@@ -26,6 +26,7 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.ViewHolder> 
     private List<Tasks> mDataSet;
     private Context mContext;
     private Random mRandom = new Random();
+    private boolean TAG = false;
 
     public TasksAdapter(Context context, List<Tasks> list) {
         mDataSet = list;
@@ -56,7 +57,7 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(final TasksAdapter.ViewHolder holder, final int position) {
         holder.mTextView.setText((String) mDataSet.get(position).getName());
-
+        final int pos = position;
         // Set a random color for TextView background
         holder.mTextView.setBackgroundColor(ContextCompat.getColor(mContext, R.color.mainWhite));
 
@@ -66,6 +67,15 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.ViewHolder> 
         // Set a gradient background for RelativeLayout
 //        holder.mRelativeLayout.setBackground(getGradientDrawable());
 
+        holder.mRemoveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mDataSet.get(pos).TAG) {
+                    holder.mRemoveButton.setImageResource(R.drawable.checked_checkbox);
+                }else{ holder.mRemoveButton.setImageResource(R.drawable.unchecked_checkbox);}
+                mDataSet.get(pos).TAG ^= true;
+            }
+        });
 
         // Set a click listener for TextView
         holder.mTextView.setOnClickListener(new View.OnClickListener() {

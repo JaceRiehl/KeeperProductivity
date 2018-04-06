@@ -9,6 +9,7 @@ import android.os.Parcelable;
 
 public class Tasks implements Parcelable{
     private String name;
+    public boolean TAG = false;
 
     public Tasks(String name){
         this.name = name;

@@ -12,20 +12,20 @@
     <TextView
         android:id="@+id/taskName"
         android:layout_width="260dp"
-        android:layout_height="33dp"
+        android:layout_height="38dp"
         android:layout_weight="1"
         android:textSize="24sp" />
 
     <ImageButton
         android:id="@+id/taskButton"
         android:layout_width="wrap_content"
-        android:layout_height="33dp"
+        android:layout_height="38dp"
         android:layout_weight="1"
         android:adjustViewBounds="true"
         android:background="@color/mainWhite"
         android:contentDescription="@string/checkbox_string"
         android:padding="15dp"
         android:scaleType="centerCrop"
-        app:srcCompat="@android:drawable/checkbox_off_background" />
+        android:src="@drawable/unchecked_checkbox" />
 
 </LinearLayout>
