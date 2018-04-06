@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/taskLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingBottom="10dp"
+    android:paddingTop="10dp">
+
+    <TextView
+        android:id="@+id/taskName"
+        android:layout_width="260dp"
+        android:layout_height="33dp"
+        android:layout_weight="1"
+        android:textSize="24sp" />
+
+    <ImageButton
+        android:id="@+id/taskButton"
+        android:layout_width="wrap_content"
+        android:layout_height="33dp"
+        android:layout_weight="1"
+        android:adjustViewBounds="true"
+        android:background="@color/mainWhite"
+        android:contentDescription="@string/checkbox_string"
+        android:padding="15dp"
+        android:scaleType="centerCrop"
+        app:srcCompat="@android:drawable/checkbox_off_background" />
+
+</LinearLayout>

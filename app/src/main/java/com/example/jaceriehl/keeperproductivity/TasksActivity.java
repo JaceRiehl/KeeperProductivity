@@ -1,21 +1,53 @@
 package com.example.jaceriehl.keeperproductivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatDelegate;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TasksActivity extends AppCompatActivity {
     protected Intent returnIntent;
+    private RecyclerView taskView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
+    private Context mContext;
+    LinearLayout mRelativeLayout;
+    private int position = 1;
+    ArrayList<Tasks> taskList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tasks);
+        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
+        mContext = getApplicationContext();
+        taskView = (RecyclerView) findViewById(R.id.taskRecycler);
+        taskView.setHasFixedSize(true);
+
+        final Lists[] taskEls = {
+                new Lists("Test")
+        };
+
+        // Intilize an array list from array
+        taskList = new ArrayList<Tasks>();
+        taskList.add(0, new Tasks("Test"));
+
+        mLayoutManager = new GridLayoutManager(mContext,1);
+        taskView.setLayoutManager(mLayoutManager);
+        mAdapter = new TasksAdapter(mContext,taskList);
+        taskView.setAdapter(mAdapter);
 
         ActionBar action = getSupportActionBar();
         action.setHomeButtonEnabled(true);
@@ -49,7 +81,8 @@ public class TasksActivity extends AppCompatActivity {
                 finish();
                 return true;
             case R.id.action_add:
-
+                //final Intent listSettingsIntent = new Intent(view.getContext(), NewListActivity.class);
+                //startActivityForResult(listSettingsIntent, 0);
                 return true;
         }
         return super.onOptionsItemSelected(item);
