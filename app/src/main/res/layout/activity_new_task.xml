@@ -76,6 +76,7 @@
                 android:layout_height="33dp"
                 android:layout_weight="1"
                 android:text="@string/nameAttribute"
+                android:textColor="@color/lessSubtleText"
                 android:textSize="18sp" />
 
             <EditText
@@ -92,7 +93,7 @@
 
     <LinearLayout
         android:layout_width="356dp"
-        android:layout_height="227dp"
+        android:layout_height="448dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="120dp"
@@ -106,13 +107,14 @@
             android:layout_height="55dp"
             android:orientation="horizontal">
 
+
             <TextView
-                android:id="@+id/textView4"
-                android:layout_width="4dp"
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
-                android:text="Habbit/Task"
+                android:text="Habit/Task"
                 android:textSize="18sp" />
 
             <Spinner
@@ -128,9 +130,10 @@
             android:layout_height="55dp"
             android:orientation="horizontal">
 
+
             <TextView
-                android:id="@+id/textView6"
-                android:layout_width="wrap_content"
+                android:id="@+id/repeatTV"
+                android:layout_width="15dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
@@ -145,8 +148,56 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/blankLayout"
             android:layout_width="match_parent"
             android:layout_height="55dp"
-            android:orientation="horizontal"></LinearLayout>
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/numDaysTV"
+                android:layout_width="106dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="How often?"
+                android:textColor="@color/lessSubtleText"
+                android:textSize="18sp" />
+
+            <EditText
+                android:layout_width="115dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="Days"
+                android:inputType="textPersonName" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/timeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="61dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/timeTV"
+                android:layout_width="122dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="At what time?"
+                android:textColor="@color/lessSubtleText"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/pickTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="hh:mm"
+                android:inputType="time" />
+
+        </LinearLayout>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

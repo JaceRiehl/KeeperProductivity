@@ -9,4 +9,6 @@
     <string name="x">X</string>
     <string name="new_task">New Task</string>
     <string name="main_act_title">Lists</string>
+    <string name="repeat">Repeat:</string>
+    <string name="habbit_task">Habbit/Task</string>
 </resources>

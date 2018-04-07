@@ -25,7 +25,10 @@
             android:name=".TasksActivity"
             android:label="My new title"
             android:theme="@style/AppThemeTasks" />
-        <activity android:name=".NewTaskActivity"></activity>
+        <activity
+            android:name=".NewTaskActivity">
+
+        </activity>
     </application>
 
 </manifest>
