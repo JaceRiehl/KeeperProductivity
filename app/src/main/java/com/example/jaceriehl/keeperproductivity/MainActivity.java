@@ -2,13 +2,16 @@ package com.example.jaceriehl.keeperproductivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -20,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager mLayoutManager;
     private Context mContext;
 
-    RelativeLayout mRelativeLayout;
+    LinearLayout mRelativeLayout;
     //private List<String> boardList;
     private int position = 1;
     ArrayList<Lists> boardList;
@@ -36,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
         action.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         action.setCustomView(R.layout.custom_main_act_bar);
         action.setTitle("Lists");
+        DividerItemDecoration itemDecorator = new DividerItemDecoration(mContext, DividerItemDecoration.VERTICAL);
+        itemDecorator.setDrawable(ContextCompat.getDrawable(mContext, R.drawable.list_recycler_spacer));
+        listView.addItemDecoration(itemDecorator);
         final Lists[] listEls = {
             new Lists("Test")
         };

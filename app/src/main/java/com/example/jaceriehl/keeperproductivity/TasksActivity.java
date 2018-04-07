@@ -37,7 +37,7 @@ public class TasksActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tasks);
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
         mContext = getApplicationContext();
-        taskView = (RecyclerView) findViewById(R.id.taskRecycler);
+        taskView = findViewById(R.id.taskRecycler);
         taskView.setHasFixedSize(true);
 
         final Lists[] taskEls = {
@@ -45,7 +45,7 @@ public class TasksActivity extends AppCompatActivity {
         };
 
         // Intilize an array list from array
-        taskList = new ArrayList<Tasks>();
+        taskList = new ArrayList<>();
         taskList.add(0, new Tasks("Test"));
 
         mLayoutManager = new GridLayoutManager(mContext,1);
@@ -60,7 +60,7 @@ public class TasksActivity extends AppCompatActivity {
         //action.setTitle("Title");
         //getSupportActionBar().setTitle("Hello world App");
         returnIntent = getIntent();
-        Lists listEl = (Lists)returnIntent.getParcelableExtra("listObject");
+        Lists listEl = returnIntent.getParcelableExtra("listObject");
         action.setTitle(listEl.getName());
         DividerItemDecoration itemDecorator = new DividerItemDecoration(mContext, DividerItemDecoration.VERTICAL);
         itemDecorator.setDrawable(ContextCompat.getDrawable(mContext, R.drawable.recycler_spacer));
@@ -101,10 +101,6 @@ public class TasksActivity extends AppCompatActivity {
         {
             if(resultCode == RESULT_OK)
             {
-                final Button newList = findViewById(R.id.newList);
-                //newList.setText("HI");
-
-
                 String result = data.getStringExtra("taskName");
                 Tasks newTaskToBeAdded = new Tasks(result);
                 taskList.add(newTaskToBeAdded);

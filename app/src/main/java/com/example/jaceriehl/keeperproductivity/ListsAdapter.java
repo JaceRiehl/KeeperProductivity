@@ -8,10 +8,12 @@ import android.graphics.drawable.GradientDrawable;
 import android.os.Parcelable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,12 +35,12 @@ public class ListsAdapter extends RecyclerView.Adapter<ListsAdapter.ViewHolder>{
     public static class ViewHolder extends RecyclerView.ViewHolder{
         public TextView mTextView;
         public ImageButton mRemoveButton;
-        public RelativeLayout mRelativeLayout;
+        public LinearLayout mRelativeLayout;
         public ViewHolder(View v){
             super(v);
             mTextView = (TextView) v.findViewById(R.id.tv);
 //            mRemoveButton = (ImageButton) v.findViewById(R.id.ib_remove);
-            mRelativeLayout = (RelativeLayout) v.findViewById(R.id.rl);
+            mRelativeLayout = (LinearLayout) v.findViewById(R.id.rl);
         }
     }
 
