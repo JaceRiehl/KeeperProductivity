@@ -11,4 +11,9 @@
     <color name="ghostText">#e2e2e2</color>
     <color name="subtleText">#b9b9b9</color>
     <color name="tasksBar">#5195f4</color>
+    <color name="taskPageBackground">#ff00ddff</color>
+    <color name="mainBackground">#fff0f0f0</color>
+    <color name="lessSubtleText">#898989</color>
+
+
 </resources>
