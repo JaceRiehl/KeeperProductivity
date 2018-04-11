@@ -18,9 +18,9 @@ public class NewListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_list);
 
-        final Button checkBox = findViewById(R.id.newListCheck);
+        //final Button checkBox = findViewById(R.id.newListCheck);
         final EditText enterBoardName = findViewById(R.id.enterBoardName);
-        final Button cancelBox = findViewById(R.id.closeNewList);
+        //final Button cancelBox = findViewById(R.id.closeNewList);
         final Intent returnIntent = new Intent();
 
 
@@ -37,32 +37,32 @@ public class NewListActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                if(enterBoardName.getText().toString().trim().length() != 0)
-                    checkBox.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.checkBoxes));
-                else
-                    checkBox.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.ghostText));
+                //if(enterBoardName.getText().toString().trim().length() != 0)
+                    //checkBox.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.checkBoxes));
+                //else
+                    //checkBox.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.ghostText));
             }
         });
 
-        checkBox.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(enterBoardName.getText().toString().trim().length() != 0)
-                {
-                    returnIntent.putExtra("boardName", enterBoardName.getText().toString().trim());
-                    setResult(Activity.RESULT_OK,returnIntent);
-                    finish();
-                }
-            }
-        });
+//        checkBox.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if(enterBoardName.getText().toString().trim().length() != 0)
+//                {
+//                    returnIntent.putExtra("boardName", enterBoardName.getText().toString().trim());
+//                    setResult(Activity.RESULT_OK,returnIntent);
+//                    finish();
+//                }
+//            }
+//        });
 
-        cancelBox.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                setResult(Activity.RESULT_CANCELED, returnIntent);
-                finish();
-            }
-        });
+//        cancelBox.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                setResult(Activity.RESULT_CANCELED, returnIntent);
+//                finish();
+//            }
+//        });
     }
 
 

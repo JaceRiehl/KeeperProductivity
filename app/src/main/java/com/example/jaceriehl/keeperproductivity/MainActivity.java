@@ -17,7 +17,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NewListOverlay.EnterListNameListener{
     private RecyclerView listView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -60,8 +60,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 final Intent listSettingsIntent = new Intent(view.getContext(), NewListActivity.class);
-                    startActivityForResult(listSettingsIntent, 0);
-
+                    //startActivityForResult(listSettingsIntent, 0);
+                NewListOverlay overlayPopup = new NewListOverlay();
+                overlayPopup.show(getSupportFragmentManager(),"Enter List Name");
                 }
         });
 
@@ -75,30 +76,45 @@ public class MainActivity extends AppCompatActivity {
 //        boardList.setEmptyView(empty);
 //    }
 
+
+
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data){
-        MainActivity.super.onActivityResult(requestCode,resultCode,data);
-        if(requestCode == 0)
-        {
-            if(resultCode == RESULT_OK)
-            {
-                final Button newList = findViewById(R.id.newList);
-                //newList.setText("HI");
+    public void passText(String name) {
+        String result = name;
+        Lists newListToBeAdded = new Lists(result);
+        boardList.add(newListToBeAdded);
+        mAdapter.notifyItemInserted(position);
+        listView.scrollToPosition(position);
 
+        Toast.makeText(mContext,"Added : " + result,Toast.LENGTH_SHORT).show();
 
-                String result = data.getStringExtra("boardName");
-                Lists newListToBeAdded = new Lists(result);
-                boardList.add(newListToBeAdded);
-                mAdapter.notifyItemInserted(position);
-                listView.scrollToPosition(position);
-
-                Toast.makeText(mContext,"Added : " + result,Toast.LENGTH_SHORT).show();
-
-                position += 1;
-            }
-
-        }
+        position += 1;
     }
+
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+//        MainActivity.super.onActivityResult(requestCode,resultCode,data);
+//        if(requestCode == 0)
+//        {
+//            if(resultCode == RESULT_OK)
+//            {
+//                final Button newList = findViewById(R.id.newList);
+//                //newList.setText("HI");
+//
+//
+//                String result = data.getStringExtra("boardName");
+//                Lists newListToBeAdded = new Lists(result);
+//                boardList.add(newListToBeAdded);
+//                mAdapter.notifyItemInserted(position);
+//                listView.scrollToPosition(position);
+//
+//                Toast.makeText(mContext,"Added : " + result,Toast.LENGTH_SHORT).show();
+//
+//                position += 1;
+//            }
+//
+//        }
+//    }
 
 //    public void callOnListClicked(int position){
 //        //mContext = getApplicationContext();
