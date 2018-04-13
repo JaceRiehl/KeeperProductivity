@@ -6,7 +6,7 @@ import android.os.Parcelable;
 
 public class Tasks implements Parcelable{
     private String name;
-    public boolean TAG = true;
+    public boolean TAG = false;
     public boolean isHabit = true;
     public int habitStreak = 0;
 
