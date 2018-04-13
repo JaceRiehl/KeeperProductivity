@@ -111,29 +111,7 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.ViewHolder> 
             }
 
 
-//            @Override
-//            protected void onActivityResult(int requestCode, int resultCode, Intent data){
-//            ListsAdapter.super.onActivityResult(requestCode,resultCode,data);
-//                if(requestCode == 0)
-//                {
-//                    if(resultCode == RESULT_OK)
-//                    {
-////                    final Button newList = findViewById(R.id.newList);
-////                    //newList.setText("HI");
-////
-////
-////                    String result = data.getStringExtra("boardName");
-////                    boardList.add(position,"" + result);
-////                    mAdapter.notifyItemInserted(position);
-////                    listView.scrollToPosition(position);
-////                    Lists newListToBeAdded = new Lists(result);
-////                    Toast.makeText(mContext,"Added : " + result,Toast.LENGTH_SHORT).show();
-////
-////                    position += 1;
-////                }
-//
-//                    }
-//                }
+
         });
 
 

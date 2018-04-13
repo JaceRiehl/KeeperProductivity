@@ -39,9 +39,8 @@ public class TasksActivity extends AppCompatActivity {
         mContext = getApplicationContext();
         taskView = findViewById(R.id.taskRecycler);
         taskView.setHasFixedSize(true);
-
         taskList = new ArrayList<>();
-        taskList.add(0, new Tasks("Finish App Demos"));
+        //taskList.add(0, new Tasks("Finish App Demos"));
 
         mLayoutManager = new GridLayoutManager(mContext,1);
         taskView.setLayoutManager(mLayoutManager);
