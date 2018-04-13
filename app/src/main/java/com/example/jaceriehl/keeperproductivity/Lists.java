@@ -5,10 +5,6 @@ import android.os.Parcelable;
 
 import java.io.Serializable;
 
-/**
- * Created by jaceriehl on 2018-03-31.
- */
-
 public class Lists implements Parcelable {
     private String listName;
     public Lists(String name){

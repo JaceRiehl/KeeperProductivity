@@ -114,7 +114,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
-                android:text="Habit/Task"
+                android:text="@string/habit_task"
                 android:textSize="18sp" />
 
             <Spinner
@@ -159,7 +159,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
-                android:text="How often?"
+                android:text="@string/how_often"
                 android:textColor="@color/lessSubtleText"
                 android:textSize="18sp" />
 
@@ -168,7 +168,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="Days"
+                android:hint="@string/days"
                 android:inputType="textPersonName" />
 
         </LinearLayout>
@@ -185,7 +185,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
-                android:text="At what time?"
+                android:text="@string/at_what_time"
                 android:textColor="@color/lessSubtleText"
                 android:textSize="18sp" />
 
@@ -195,7 +195,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="hh:mm"
+                android:hint="@string/hh_mm"
                 android:inputType="time" />
 
         </LinearLayout>

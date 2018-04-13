@@ -40,13 +40,8 @@ public class TasksActivity extends AppCompatActivity {
         taskView = findViewById(R.id.taskRecycler);
         taskView.setHasFixedSize(true);
 
-        final Lists[] taskEls = {
-                new Lists("Test")
-        };
-
-        // Intilize an array list from array
         taskList = new ArrayList<>();
-        taskList.add(0, new Tasks("Test"));
+        taskList.add(0, new Tasks("Finish App Demos"));
 
         mLayoutManager = new GridLayoutManager(mContext,1);
         taskView.setLayoutManager(mLayoutManager);
@@ -57,8 +52,6 @@ public class TasksActivity extends AppCompatActivity {
         action.setHomeButtonEnabled(true);
         action.setDisplayHomeAsUpEnabled(true);
 
-        //action.setTitle("Title");
-        //getSupportActionBar().setTitle("Hello world App");
         returnIntent = getIntent();
         Lists listEl = returnIntent.getParcelableExtra("listObject");
         action.setTitle(listEl.getName());

@@ -11,4 +11,9 @@
     <string name="main_act_title">Lists</string>
     <string name="repeat">Repeat:</string>
     <string name="habbit_task">Habbit/Task</string>
+    <string name="habit_task">Habit/Task</string>
+    <string name="how_often">How often?</string>
+    <string name="days">Days</string>
+    <string name="at_what_time">At what time?</string>
+    <string name="hh_mm">hh:mm</string>
 </resources>

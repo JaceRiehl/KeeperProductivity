@@ -19,7 +19,7 @@ import org.w3c.dom.Text;
 
 public class NewTaskActivity extends AppCompatActivity {
 
-    protected int htIndex;
+    protected int htIndex = 0;
     protected int repeatIndex;
     protected boolean customSelected = false;
     protected int customPosition = 4;
@@ -81,7 +81,7 @@ public class NewTaskActivity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-
+                htIndex = adapterView.getSelectedItemPosition();
             }
         });
 
@@ -104,7 +104,7 @@ public class NewTaskActivity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-
+                repeatIndex = adapterView.getSelectedItemPosition();
             }
         });
 
