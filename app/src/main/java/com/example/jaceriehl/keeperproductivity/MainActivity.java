@@ -42,13 +42,10 @@ public class MainActivity extends AppCompatActivity implements NewListOverlay.En
         DividerItemDecoration itemDecorator = new DividerItemDecoration(mContext, DividerItemDecoration.VERTICAL);
         itemDecorator.setDrawable(ContextCompat.getDrawable(mContext, R.drawable.list_recycler_spacer));
         listView.addItemDecoration(itemDecorator);
-        final Lists[] listEls = {
-            new Lists("Test")
-        };
 
         // Intilize an array list from array
         boardList = new ArrayList<Lists>();
-        boardList.add(0, new Lists("Test"));
+        boardList.add(0, new Lists("Wendy\'s List"));
 
         mLayoutManager = new GridLayoutManager(mContext,1);
         listView.setLayoutManager(mLayoutManager);
@@ -68,14 +65,6 @@ public class MainActivity extends AppCompatActivity implements NewListOverlay.En
 
     }
 
-//    @Override
-//    public void onContentChanged() {
-//        super.onContentChanged();
-//        boardList = (ListView) findViewById(R.id.lists);
-//        View empty = findViewById(R.id.empty);
-//        boardList.setEmptyView(empty);
-//    }
-
 
 
     @Override
@@ -91,54 +80,5 @@ public class MainActivity extends AppCompatActivity implements NewListOverlay.En
         position += 1;
     }
 
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data){
-//        MainActivity.super.onActivityResult(requestCode,resultCode,data);
-//        if(requestCode == 0)
-//        {
-//            if(resultCode == RESULT_OK)
-//            {
-//                final Button newList = findViewById(R.id.newList);
-//                //newList.setText("HI");
-//
-//
-//                String result = data.getStringExtra("boardName");
-//                Lists newListToBeAdded = new Lists(result);
-//                boardList.add(newListToBeAdded);
-//                mAdapter.notifyItemInserted(position);
-//                listView.scrollToPosition(position);
-//
-//                Toast.makeText(mContext,"Added : " + result,Toast.LENGTH_SHORT).show();
-//
-//                position += 1;
-//            }
-//
-//        }
-//    }
-
-//    public void callOnListClicked(int position){
-//        //mContext = getApplicationContext();
-//        //String animal = boardList.get(position);
-//        Toast.makeText(getApplicationContext(), "dfshjak", Toast.LENGTH_SHORT).show();
-//        //Intent showList = new Intent(mContext,TasksActivity.class);
-//        //showList.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//        //showList.putExtra("test", "This is a test value");
-//        //showList.addFlags(FLAG_ACTIVITY_NEW_TASK);
-//        //sowList.setAction(Intent.ACTION_GET_CONTENT);
-//        //showList.setClass(mContext,TasksBoard.class);
-//       // mContext.startActivity(showList);
-//    }
-
-//    //@Override
-//    public void onItemClick(View view, int position) {
-//        //Context context=view.getContext();
-//        Intent intent=new Intent();
-//        switch (position){
-//            case 0:
-//                intent =  new Intent(mContext, TasksBoard.class);
-//                mContext.startActivity(intent);
-//                break;
-//        }
-//    }
 
 }

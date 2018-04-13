@@ -12,9 +12,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-/**
- * Created by jaceriehl on 2018-04-11.
- */
 
 public class NewListOverlay extends AppCompatDialogFragment {
     //final Button checkBox;

@@ -3,13 +3,12 @@ package com.example.jaceriehl.keeperproductivity;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-/**
- * Created by jaceriehl on 2018-04-04.
- */
 
 public class Tasks implements Parcelable{
     private String name;
-    public boolean TAG = true;
+    public boolean TAG = false;
+    public boolean isHabit = false;
+    public int habitStreak = 0;
 
     public Tasks(String name){
         this.name = name;
@@ -23,6 +22,9 @@ public class Tasks implements Parcelable{
     @Override
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(name);
+        boolean habitArray[] = {isHabit, TAG};
+        parcel.writeBooleanArray(habitArray);
+        parcel.writeInt(habitStreak);
     }
 
     public static final Parcelable.Creator<Tasks> CREATOR = new Parcelable.Creator<Tasks>(){
@@ -42,5 +44,10 @@ public class Tasks implements Parcelable{
 
     private Tasks(Parcel in) {
         name = in.readString();
+        boolean habitArray[] = new boolean[2];
+        in.readBooleanArray(habitArray);
+        TAG = habitArray[1];
+        isHabit = habitArray[0];
+        habitStreak = in.readInt();
     }
 }
