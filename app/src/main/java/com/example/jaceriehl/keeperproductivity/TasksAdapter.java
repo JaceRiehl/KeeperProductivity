@@ -9,24 +9,24 @@ import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-/**
- * Created by jaceriehl on 2018-04-04.
- */
 
 public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.ViewHolder> {
     private List<Tasks> mDataSet;
     private Context mContext;
     private Random mRandom = new Random();
     private boolean TAG = false;
+    public List<Tasks> habitsClicked = new ArrayList<>();
 
     public TasksAdapter(Context context, List<Tasks> list) {
         mDataSet = list;
@@ -35,12 +35,16 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.ViewHolder> 
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView mTextView;
+        public TextView mShowHabit;
         public ImageButton mRemoveButton;
+        public Button mRemoveTask;
         public LinearLayout mRelativeLayout;
 
         public ViewHolder(View v) {
             super(v);
             mTextView = (TextView) v.findViewById(R.id.taskName);
+            mShowHabit = (TextView) v.findViewById(R.id.showHabitTV);
+            mRemoveTask = (Button) v.findViewById(R.id.removeTask);
             mRemoveButton = (ImageButton) v.findViewById(R.id.taskButton);
             mRelativeLayout = (LinearLayout) v.findViewById(R.id.taskLayout);
         }
@@ -51,29 +55,49 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.ViewHolder> 
         // Create a new View
         View v = LayoutInflater.from(mContext).inflate(R.layout.tasks_view, parent, false);
         TasksAdapter.ViewHolder vh = new TasksAdapter.ViewHolder(v);
+
         return vh;
     }
 
     @Override
     public void onBindViewHolder(final TasksAdapter.ViewHolder holder, final int position) {
         holder.mTextView.setText((String) mDataSet.get(position).getName());
-        final int pos = position;
-        // Set a random color for TextView background
-        holder.mTextView.setBackgroundColor(ContextCompat.getColor(mContext, R.color.mainWhite));
-
-        // Set a text color for TextView
-        holder.mTextView.setTextColor(ContextCompat.getColor(mContext, R.color.colorPrimary));
-
-        // Set a gradient background for RelativeLayout
-//        holder.mRelativeLayout.setBackground(getGradientDrawable());
+        //final int pos = position;
+        if(mDataSet.get(position).isHabit)
+            holder.mShowHabit.setText(Integer.toString(mDataSet.get(position).habitStreak));
 
         holder.mRemoveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(mDataSet.get(pos).TAG) {
-                    holder.mRemoveButton.setImageResource(R.drawable.checked_checkbox);
-                }else{ holder.mRemoveButton.setImageResource(R.drawable.unchecked_checkbox);}
-                mDataSet.get(pos).TAG ^= true;
+                if(!mDataSet.get(position).isHabit) {
+
+                    if (mDataSet.get(position).TAG) {
+                        holder.mRemoveButton.setImageResource(R.drawable.checked_checkbox);
+                    } else {
+                        holder.mRemoveButton.setImageResource(R.drawable.unchecked_checkbox);
+                    }
+                    mDataSet.get(position).TAG ^= true;
+                }
+                else {
+                    mDataSet.get(position).habitStreak = mDataSet.get(position).habitStreak + 1;
+                    // Show the removed item label
+                    Toast.makeText(mContext,"Habit Streak : " + mDataSet.get(position).habitStreak,Toast.LENGTH_SHORT).show();
+                    habitsClicked.add(mDataSet.get(position));
+                    mDataSet.remove(position);
+                    notifyItemRemoved(position);
+                    notifyItemRangeChanged(position,mDataSet.size());
+
+
+                }
+            }
+        });
+
+        holder.mRemoveTask.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mDataSet.remove(position);
+                notifyItemRemoved(position);
+                notifyItemRangeChanged(position,mDataSet.size());
             }
         });
 
@@ -83,7 +107,6 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.ViewHolder> 
             public void onClick(View view) {
                 String animal = mDataSet.get(position).getName();
                 Toast.makeText(mContext, animal, Toast.LENGTH_SHORT).show();
-
 
             }
 

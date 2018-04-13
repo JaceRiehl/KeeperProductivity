@@ -11,28 +11,52 @@
     android:paddingTop="10dp">
 
     <Space
-        android:layout_width="14dp"
-        android:layout_height="10dp"
+        android:layout_width="2dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+    <Button
+        android:id="@+id/removeTask"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="11dp"
+        android:layout_height="26dp"
+        android:layout_weight="1"
+        android:background="@color/mainWhite"
+        android:text="X"
+        android:textSize="12sp" />
+
+    <Space
+        android:layout_width="1dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1" />
 
     <TextView
         android:id="@+id/taskName"
-        android:layout_width="268dp"
+        android:layout_width="242dp"
         android:layout_height="38dp"
         android:layout_weight="1"
         android:ellipsize="end"
         android:maxEms="25"
-        android:maxLines="1"
+        android:maxLines="2"
         android:nestedScrollingEnabled="false"
         android:scrollHorizontally="true"
         android:scrollIndicators="right"
         android:scrollbarAlwaysDrawHorizontalTrack="false"
         android:scrollbars="horizontal"
-        android:textSize="24sp" />
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/showHabitTV"
+        android:layout_width="wrap_content"
+        android:layout_height="38dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:textAlignment="center"
+        android:textSize="18sp" />
 
     <ImageButton
         android:id="@+id/taskButton"
-        android:layout_width="61dp"
+        android:layout_width="48dp"
         android:layout_height="38dp"
         android:layout_weight="1"
         android:adjustViewBounds="true"
@@ -46,10 +70,5 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1" />
-
-    <Space
-        android:layout_width="19dp"
-        android:layout_height="21dp"
-        android:layout_weight="1.1" />
 
 </LinearLayout>
