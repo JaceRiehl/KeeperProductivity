@@ -102,7 +102,10 @@ public class TasksActivity extends AppCompatActivity {
             if(resultCode == RESULT_OK)
             {
                 String result = data.getStringExtra("taskName");
+                int ht = data.getIntExtra("taskHabit",0);
                 Tasks newTaskToBeAdded = new Tasks(result);
+                if(ht == 1) newTaskToBeAdded.isHabit = true;
+                else newTaskToBeAdded.isHabit = false;
                 taskList.add(newTaskToBeAdded);
                 mAdapter.notifyItemInserted(position);
                 taskView.scrollToPosition(position);

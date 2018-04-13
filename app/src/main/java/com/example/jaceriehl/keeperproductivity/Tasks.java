@@ -3,9 +3,6 @@ package com.example.jaceriehl.keeperproductivity;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-/**
- * Created by jaceriehl on 2018-04-04.
- */
 
 public class Tasks implements Parcelable{
     private String name;

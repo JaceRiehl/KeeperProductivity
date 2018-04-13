@@ -134,6 +134,7 @@ public class NewTaskActivity extends AppCompatActivity {
                 if(enterTaskName.getText().toString().trim().length() != 0)
                 {
                     returnIntent.putExtra("taskName", enterTaskName.getText().toString().trim());
+                    returnIntent.putExtra("taskHabit", htIndex);
                     setResult(Activity.RESULT_OK,returnIntent);
                     finish();
                 }
